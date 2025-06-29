@@ -1,0 +1,7 @@
+<suite name="DemoSuite">
+    <test name="DemoTest">
+        <classes>
+            <class name="FirstGETRequest"/>
+        </classes>
+    </test>
+</suite>
