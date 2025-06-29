@@ -13,10 +13,16 @@ pipeline {
         }
     }
 
-    post {
-        always {
-            // This will now look for TestNG reports
-            publishTestNGResults testNGPattern: '**/target/surefire-reports/testng-results.xml'
-        }
+post {
+    always {
+        step([
+            $class: 'Publisher',
+            reportFilenamePattern: '**/target/surefire-reports/testng-results.xml',
+            failureOnFailedTest: true,
+            showFailedBuilds: true
+        ])
     }
+}
+
+
 }
