@@ -2,14 +2,9 @@ pipeline {
     agent any
 
     stages {
-        stage('Checkout Code') {
-            steps {
-                git 'https://github.com/Nitishpal276/restassureddemo.git'
-            }
-        }
-
         stage('Build & Test') {
             steps {
+                // Run Maven test (use 'bat' instead of 'sh' if you're on Windows)
                 bat 'mvn clean test'
             }
         }
