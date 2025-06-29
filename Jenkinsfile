@@ -13,9 +13,10 @@ pipeline {
         }
     }
 
-    post {
-        always {
-            junit '**/target/surefire-reports/*.xml'
-        }
+   post {
+    always {
+        publishTestNGResults testNGPattern: '**/target/surefire-reports/testng-results.xml'
     }
+}
+
 }
