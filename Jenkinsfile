@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     tools {
-        maven 'Maven_3.9.10'  // same name as Jenkins Maven config
+        maven 'Maven_3.9.10' // Your configured Maven version
     }
 
     stages {
@@ -13,10 +13,10 @@ pipeline {
         }
     }
 
-   post {
-    always {
-        publishTestNGResults testNGPattern: '**/target/surefire-reports/testng-results.xml'
+    post {
+        always {
+            // This will now look for TestNG reports
+            publishTestNGResults testNGPattern: '**/target/surefire-reports/testng-results.xml'
+        }
     }
-}
-
 }
