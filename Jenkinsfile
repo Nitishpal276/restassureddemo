@@ -1,10 +1,13 @@
 pipeline {
     agent any
 
+    tools {
+        maven 'Maven_3.9.10'  // same name as Jenkins Maven config
+    }
+
     stages {
         stage('Build & Test') {
             steps {
-                // Run Maven test (use 'bat' instead of 'sh' if you're on Windows)
                 bat 'mvn clean test'
             }
         }
